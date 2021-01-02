@@ -1,0 +1,51 @@
+version: "3.7"
+
+services:
+  php:
+    container_name: php
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports: 
+      - "127.0.0.1:7000:80"
+    volumes:
+      - "./api/:/var/www/html"
+  # angular:
+  #   build:
+  #     context: ./app-ui
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "4201:4201"
+  #   container_name: angular
+  #   volumes:
+  #      - ./app-ui:/usr/src/app/app-ui
+  #      - /usr/src/app/app-ui/node_modules
+  # mysql:
+  #   image: mysql:5.7
+  #   container_name: dev_mysql
+  #   volumes:
+  #     # - ./db:/var/lib/mysql
+  #     - app-mysql-data:/var/lib/mysql
+    # environment:
+    #   MYSQL_USER: user
+    #   MYSQL_PASSWORD: user
+    #   MYSQL_ROOT_PASSWORD: root # user root/root for username/password
+    #   MYSQL_DATABASE: api_documenter
+
+  # phpmyadmin:
+  #   image: phpmyadmin
+  #   container_name: dev_pma
+  #   links:
+  #     - mysql
+  #   environment:
+  #     PMA_HOST: mysql
+  #     PMA_PORT: 3306
+  #     PMA_ARBITRARY: 1
+  #   restart: always
+  #   ports:
+  #     - 127.0.0.1:7080:80    
+
+# volumes:
+#   app-mysql-data:
+  # var:
+  # vendor:
